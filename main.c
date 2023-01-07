@@ -12,8 +12,8 @@
     #define _BV(v) (1u << (v))
 #endif
 
-#define LOOP_DELAY_MS 1
-#define RESET_TIMEOUT_CYCLES 10000 //To wait before resetting transition counter
+#define LOOP_DELAY_US 1000
+#define RESET_TIMEOUT_CYCLES 20000 //To wait before resetting transition counter
 #define ASSERTION_TIME_INCREMENT_MS 1000
 #define OUTPUT_PIN PB0
 #define RTS_INPUT_PIN PB1
@@ -66,6 +66,6 @@ int main(void)
     while (1)
     {
         loop();
-        _delay_ms(LOOP_DELAY_MS);
+        _delay_us(LOOP_DELAY_US);
     }
 }

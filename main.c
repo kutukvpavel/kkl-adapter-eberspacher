@@ -16,6 +16,7 @@
 #define RESET_TIMEOUT_CYCLES 10000 //To wait before resetting transition counter
 #define ASSERTION_TIME_INCREMENT_MS 1000
 #define OUTPUT_PIN PB0
+#define RTS_INPUT_PIN PB1
 
 void setup(void)
 {
@@ -29,7 +30,7 @@ void loop(void)
     static uint8_t transition_cnt = 0;
     static uint16_t assertion_timer = 0; //Count output pin assertion time, max ~30sec
 
-    uint8_t current_rts = PINB & _BV(PB1);
+    uint8_t current_rts = PINB & _BV(RTS_INPUT_PIN);
     if (current_rts != last_rts)
     {
         last_rts = current_rts;

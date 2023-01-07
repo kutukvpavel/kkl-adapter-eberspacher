@@ -1,6 +1,6 @@
 BUILDDIR=$(CURDIR)/build
 
-MCU=attiny13
+MCU=attiny13a
 F_CPU=1200000
 CC=avr-gcc
 OBJCOPY=avr-objcopy
@@ -10,11 +10,11 @@ SRCS=main.c
 
 
 all:
-		${CC} ${CFLAGS} -o ${TARGET}.bin ${SRCS}
-		${OBJCOPY} -j .text -j .data -O ihex ${TARGET}.bin ${TARGET}.hex
+		${CC} ${CFLAGS} -o ${TARGET}.elf ${SRCS}
+		${OBJCOPY} -j .text -j .data -O ihex ${TARGET}.elf ${TARGET}.hex
 
 flash:
 		avrdude -p ${MCU} -c usbasp -U flash:w:${TARGET}.hex:i -F -P usb
 
 clean:
-		rm -f *.bin *.hex
+		rm -f *.elf *.hex

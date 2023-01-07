@@ -2,7 +2,7 @@
     #define __AVR_ATtiny13A__
 #endif
 #ifndef F_CPU
-    #define F_CPU 1200000ULL //9.6 MHz internal clock
+    #define F_CPU 1200000ULL //9.6 MHz internal clock with CKDIV8 enabled
 #endif
 
 #include <avr/io.h>

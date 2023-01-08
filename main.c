@@ -91,6 +91,7 @@ void loop(void)
             cli();
             wait_timer = WAIT_DELAY_MS;
             sei();
+            break;
         case 2:
             assertion_timer = 2400; // 2.4 S
             break;
